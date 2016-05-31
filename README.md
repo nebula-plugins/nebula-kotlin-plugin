@@ -10,7 +10,7 @@ Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin librar
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.0'
+    id 'nebula.kotlin' version '1.0.2'
 } 
 
 repositories {
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-In this case `kotlin-stdlib` will be automatically set to `1.0.0`.
+In this case `kotlin-stdlib` will be automatically set to `1.0.2`.
 
 # Quick Start
 
