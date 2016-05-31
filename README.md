@@ -38,4 +38,4 @@ dependencies {
 }
 ```
 
-In this case `kotlin-reflect` will be automatically set to `1.0.2`.
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.2`).
