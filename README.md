@@ -9,17 +9,17 @@
 Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin library versions to be omitted. It simplifies a basic Kotlin build script to:
 
 ```groovy
-    plugins {
-        id 'nebula.kotlin' version '1.0.0'
-    } 
+plugins {
+    id 'nebula.kotlin' version '1.0.0'
+} 
 
-    repositories {
-        mavenCentral()
-    }
+repositories {
+    mavenCentral()
+}
 
-    dependencies {
-        compile 'org.jetbrains.kotlin:kotlin-stdlib'
-    }
+dependencies {
+    compile 'org.jetbrains.kotlin:kotlin-stdlib'
+}
 ```
 
 In this case `kotlin-stdlib` will be automatically set to `1.0.0`.
