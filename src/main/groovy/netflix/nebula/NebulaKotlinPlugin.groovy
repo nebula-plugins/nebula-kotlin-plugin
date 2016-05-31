@@ -11,6 +11,11 @@ class NebulaKotlinPlugin implements Plugin<Project> {
             plugins.apply('kotlin')
 
             def kotlinVersion = loadKotlinVersion()
+
+            dependencies {
+                compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+            }
+
             configurations.all({ configuration ->
                 configuration.resolutionStrategy.eachDependency { details ->
                     def requested = details.requested
