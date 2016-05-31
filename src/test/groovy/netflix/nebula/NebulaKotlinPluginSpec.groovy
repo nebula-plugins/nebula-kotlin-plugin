@@ -16,6 +16,23 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         noExceptionThrown()
     }
 
+    def 'kotlin standard library is added'() {
+        given:
+        buildFile << """
+        apply plugin: 'nebula.kotlin'
+
+        repositories {
+            mavenCentral()
+        }
+        """
+
+        when:
+        def result = runTasksSuccessfully('dependencies')
+
+        then:
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:1.0.0\n")
+    }
+
     def 'kotlin library versions are set if omitted'() {
         given:
         buildFile << """
@@ -26,7 +43,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
 
         dependencies {
-            compile "org.jetbrains.kotlin:kotlin-stdlib"
+            compile "org.jetbrains.kotlin:kotlin-reflect"
         }
         """
 
@@ -34,6 +51,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib: -> 1.0.0\n")
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-reflect: -> 1.0.0\n")
     }
 }
