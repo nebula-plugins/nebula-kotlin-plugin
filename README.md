@@ -18,7 +18,7 @@ Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin librar
     }
 
     dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib"
+        compile 'org.jetbrains.kotlin:kotlin-stdlib'
     }
 ```
 
