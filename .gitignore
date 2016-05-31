@@ -1,5 +1,10 @@
-.gradle/
 build/
-.idea/
+generated/
+.DS_Store
+out/
+.gradle
+.idea
 *.ipr
 *.iml
+*.iws
+gradle.properties
