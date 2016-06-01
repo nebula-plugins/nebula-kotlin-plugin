@@ -3,6 +3,12 @@ package netflix.nebula
 import nebula.test.IntegrationSpec
 
 class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
+    String kotlinVersion
+
+    def setup() {
+        kotlinVersion = NebulaKotlinPlugin.loadKotlinVersion()
+    }
+
     def 'plugin applies'() {
         given:
         buildFile << """
@@ -30,7 +36,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:1.0.0\n")
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
     }
 
     def 'kotlin library versions are set if omitted'() {
@@ -51,6 +57,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-reflect: -> 1.0.0\n")
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-reflect: -> $kotlinVersion\n")
     }
 }
