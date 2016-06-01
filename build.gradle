@@ -29,7 +29,7 @@ contacts {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1"
+    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1-1"
 }
 
 pluginBundle {
