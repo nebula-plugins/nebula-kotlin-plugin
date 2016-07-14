@@ -27,7 +27,7 @@ repositories {
 ```groovy
 plugins {
     id 'nebula.kotlin' version '1.0.2'
-} 
+}
 
 repositories {
     mavenCentral() // or jcenter()
@@ -60,3 +60,5 @@ buildscript {
     repositories.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
 }
 ```
+
+Note that our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M01` ours are `1.1.0-M01`.
