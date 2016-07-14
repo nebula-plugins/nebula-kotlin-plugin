@@ -22,7 +22,11 @@ repositories {
 }
 ```
 
-# Additional Libraries
+# Standard library
+
+The plugin automatically adds the Kotlin standard library, and on Kotlin 1.1 and later, automatically selects the appropriate jre version for the library based on the `sourceCompatibility` configured for the project.
+
+# Additional library
 
 ```groovy
 plugins {

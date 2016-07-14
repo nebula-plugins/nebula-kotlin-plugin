@@ -1,7 +1,9 @@
 package netflix.nebula
 
+import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPluginConvention
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlugin
 import java.io.FileNotFoundException
 import java.util.*
@@ -28,7 +30,16 @@ class NebulaKotlinPlugin : Plugin<Project> {
             val kotlinVersion = loadKotlinVersion()
 
             repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
-            dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+
+            afterEvaluate {
+                val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
+                val jreSuffix = when {
+                    sourceCompatibility == JavaVersion.VERSION_1_7 -> "-jre7"
+                    sourceCompatibility >= JavaVersion.VERSION_1_8 -> "-jre8"
+                    else -> ""
+                }
+                dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jreSuffix:$kotlinVersion")
+            }
 
             configurations.all({ configuration ->
                 configuration.resolutionStrategy.eachDependency { details ->
