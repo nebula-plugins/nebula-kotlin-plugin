@@ -29,8 +29,12 @@ contacts {
     }
 }
 
+repositories {
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+}
+
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3'
+    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1-M01'
 }
 
 pluginBundle {

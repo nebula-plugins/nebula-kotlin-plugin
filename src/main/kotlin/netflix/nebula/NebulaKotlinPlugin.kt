@@ -7,12 +7,27 @@ import java.io.FileNotFoundException
 import java.util.*
 
 class NebulaKotlinPlugin : Plugin<Project> {
+    companion object {
+        @JvmStatic
+        fun loadKotlinVersion(): String {
+            val props = Properties()
+            val propFileName = "project.properties"
+            val inputStream = KotlinPlugin::class.java.classLoader.getResourceAsStream(propFileName) ?: throw FileNotFoundException("property file '$propFileName' not found in the classpath")
+
+            props.load(inputStream)
+
+            val projectVersion = props ["project.version"] as String
+            return projectVersion
+        }
+    }
+
     override fun apply(project: Project) {
         kotlin.with(project) {
             plugins.apply("kotlin")
 
             val kotlinVersion = loadKotlinVersion()
 
+            repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
             dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
             configurations.all({ configuration ->
@@ -24,16 +39,5 @@ class NebulaKotlinPlugin : Plugin<Project> {
                 }
             })
         }
-    }
-
-    fun loadKotlinVersion(): String {
-        val props = Properties()
-        val propFileName = "project.properties"
-        val inputStream = KotlinPlugin::class.java.classLoader.getResourceAsStream(propFileName) ?: throw FileNotFoundException("property file '$propFileName' not found in the classpath")
-
-        props.load(inputStream)
-
-        val projectVersion = props ["project.version"] as String
-        return projectVersion
     }
 }

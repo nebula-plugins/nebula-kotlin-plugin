@@ -39,3 +39,24 @@ dependencies {
 ```
 
 The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.2`).
+
+# Milestones
+
+Milestone plugin versions are also available, but require the milestone bintray repository for the Kotlin Gradle plugin dependencies to resolve. For example, for the 1.1 milestones on On Gradle 2.14 and later, use:
+
+```groovy
+pluginRepositories {
+    maven {
+        url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1'
+    }
+    gradlePluginPortal()
+}
+```
+
+On earlier releases:
+
+```groovy
+buildscript {
+    repositories.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+}
+```
