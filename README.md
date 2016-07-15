@@ -6,7 +6,11 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/nebula-kotlin-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
 [![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/nebula-kotlin-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-Provides the Kotlin plugin via the Gradle plugin portal, automatically depends on the standard library, and allows Kotlin library versions to be omitted.
+Provides the Kotlin plugin via the Gradle plugin portal, and adds ergonomic improvements over the default plugin:
+
+- Automatically depends on the standard library
+- Allows Kotlin library versions to be omitted, inferring them automatically from the plugin version
+- For Kotlin 1.1 and later, sets the `-jvm-target` and uses the jre standard library based on the `sourceCompatibility`
 
 # Basic Build
 
@@ -21,10 +25,6 @@ repositories {
     mavenCentral() // or jcenter()
 }
 ```
-
-# Standard library
-
-The plugin automatically adds the Kotlin standard library, and on Kotlin 1.1 and later, automatically selects the appropriate jre version for the library based on the `sourceCompatibility` configured for the project.
 
 # Additional library
 
