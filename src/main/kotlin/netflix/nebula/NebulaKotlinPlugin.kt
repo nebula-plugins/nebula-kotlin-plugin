@@ -5,6 +5,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginConvention
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
 
@@ -31,11 +32,19 @@ class NebulaKotlinPlugin : Plugin<Project> {
 
             repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 
+            val kotlinCompile = tasks.getByName("compileKotlin") as KotlinCompile
+            val kotlinOptions = kotlinCompile.kotlinOptions
             afterEvaluate {
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
                 val jreSuffix = when {
-                    sourceCompatibility == JavaVersion.VERSION_1_7 -> "-jre7"
-                    sourceCompatibility >= JavaVersion.VERSION_1_8 -> "-jre8"
+                    sourceCompatibility == JavaVersion.VERSION_1_7 -> {
+                        kotlinOptions.jvmTarget = sourceCompatibility.name
+                        "-jre7"
+                    }
+                    sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
+                        kotlinOptions.jvmTarget = sourceCompatibility.name
+                        "-jre8"
+                    }
                     else -> ""
                 }
                 dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jreSuffix:$kotlinVersion")
