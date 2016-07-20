@@ -30,7 +30,7 @@ The plugin automatically adds the Kotlin standard library, and on Kotlin 1.1 and
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.2'
+    id 'nebula.kotlin' version '1.0.3'
 }
 
 repositories {
@@ -42,7 +42,7 @@ dependencies {
 }
 ```
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.2`).
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.3`).
 
 # Milestones
 
