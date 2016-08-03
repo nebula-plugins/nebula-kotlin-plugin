@@ -38,11 +38,10 @@ class NebulaKotlinPlugin : Plugin<Project> {
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
                 val jreSuffix = when {
                     sourceCompatibility == JavaVersion.VERSION_1_7 -> {
-                        kotlinOptions.jvmTarget = sourceCompatibility.name
                         "-jre7"
                     }
                     sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
-                        kotlinOptions.jvmTarget = sourceCompatibility.name
+                        kotlinOptions.jvmTarget = '1.8'
                         "-jre8"
                     }
                     else -> ""
