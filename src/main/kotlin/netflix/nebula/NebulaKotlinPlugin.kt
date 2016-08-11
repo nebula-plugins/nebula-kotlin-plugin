@@ -32,16 +32,15 @@ class NebulaKotlinPlugin : Plugin<Project> {
 
             repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 
-            val kotlinCompile = tasks.getByName("compileKotlin") as KotlinCompile
-            val kotlinOptions = kotlinCompile.kotlinOptions
             afterEvaluate {
+                val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
                 val jreSuffix = when {
                     sourceCompatibility == JavaVersion.VERSION_1_7 -> {
                         "-jre7"
                     }
                     sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
-                        kotlinOptions.jvmTarget = "1.8"
+                        kotlinOptions.forEach { it.jvmTarget = "1.8" }
                         "-jre8"
                     }
                     else -> ""
