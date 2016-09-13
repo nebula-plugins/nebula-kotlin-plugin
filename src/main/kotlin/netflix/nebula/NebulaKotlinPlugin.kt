@@ -22,31 +22,42 @@ class NebulaKotlinPlugin : Plugin<Project> {
             val projectVersion = props ["project.version"] as String
             return projectVersion
         }
+
+        val ANDROID_PLUGIN_IDS = listOf("android", "com.android.application", "android-library", "com.android.library")
     }
 
     override fun apply(project: Project) {
         kotlin.with(project) {
-            plugins.apply("kotlin")
-
             val kotlinVersion = loadKotlinVersion()
 
-            repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
+            val isAndroid = ANDROID_PLUGIN_IDS
+                    .map { plugins.findPlugin(it) }
+                    .filterNotNull()
+                    .isNotEmpty()
 
-            afterEvaluate {
-                val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
-                val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
-                val jreSuffix = when {
-                    sourceCompatibility == JavaVersion.VERSION_1_7 -> {
-                        "-jre7"
+            if (isAndroid) {
+                plugins.apply("kotlin-android")
+            } else {
+                plugins.apply("kotlin")
+
+                afterEvaluate {
+                    val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
+                    val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
+                    val jreSuffix = when {
+                        sourceCompatibility == JavaVersion.VERSION_1_7 -> {
+                            "-jre7"
+                        }
+                        sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
+                            kotlinOptions.forEach { it.jvmTarget = "1.8" }
+                            "-jre8"
+                        }
+                        else -> ""
                     }
-                    sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
-                        kotlinOptions.forEach { it.jvmTarget = "1.8" }
-                        "-jre8"
-                    }
-                    else -> ""
+                    dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jreSuffix:$kotlinVersion")
                 }
-                dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jreSuffix:$kotlinVersion")
             }
+
+            repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 
             configurations.all({ configuration ->
                 configuration.resolutionStrategy.eachDependency { details ->

@@ -11,6 +11,7 @@ Provides the Kotlin plugin via the Gradle plugin portal, and adds ergonomic impr
 - Automatically depends on the standard library
 - Allows Kotlin library versions to be omitted, inferring them automatically from the plugin version
 - For Kotlin 1.1 and later, sets the `-jvm-target` and uses the jre standard library based on the `sourceCompatibility`
+- Applies `kotlin-android` instead of the `kotlin` plugin if Android plugins are present
 
 # Basic Build
 

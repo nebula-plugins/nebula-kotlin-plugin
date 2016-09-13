@@ -99,4 +99,44 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         then:
         result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect: -> $kotlinVersion\n")
     }
+
+    def 'kotlin android plugin is applied, if android plugin is present'() {
+        given:
+        buildFile << """
+        buildscript {
+            repositories {
+                jcenter()
+                maven {
+                    url 'https://dl.bintray.com/android/android-tools/'
+                }
+            }
+
+            dependencies {
+                classpath 'com.android.tools.build:gradle:2.2.0-rc2'
+            }
+        }
+
+        apply plugin: 'com.android.application'
+        apply plugin: 'nebula.kotlin'
+
+        android {
+            compileSdkVersion 20
+            buildToolsVersion '20.0.0'
+
+            defaultConfig {
+                applicationId "com.netflix.kotlin"
+                minSdkVersion 15
+                targetSdkVersion 23
+                versionCode 1
+                versionName '1.0'
+            }
+        }
+        """
+
+        when:
+        def result = runTasksSuccessfully('tasks')
+
+        then:
+        result.standardOutput.contains('nothing')
+    }
 }
