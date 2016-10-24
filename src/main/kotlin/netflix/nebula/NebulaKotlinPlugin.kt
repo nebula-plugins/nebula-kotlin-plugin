@@ -4,7 +4,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginConvention
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
@@ -15,7 +15,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
         fun loadKotlinVersion(): String {
             val props = Properties()
             val propFileName = "project.properties"
-            val inputStream = KotlinPlugin::class.java.classLoader.getResourceAsStream(propFileName) ?: throw FileNotFoundException("property file '$propFileName' not found in the classpath")
+            val inputStream = KotlinPluginWrapper::class.java.classLoader.getResourceAsStream(propFileName) ?: throw FileNotFoundException("property file '$propFileName' not found in the classpath")
 
             props.load(inputStream)
 
