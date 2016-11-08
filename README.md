@@ -18,7 +18,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.4'
+    id 'nebula.kotlin' version '1.0.5'
 } 
 
 repositories {
@@ -30,7 +30,7 @@ repositories {
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.3'
+    id 'nebula.kotlin' version '1.0.5'
 }
 
 repositories {
@@ -42,7 +42,7 @@ dependencies {
 }
 ```
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.3`).
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.5`).
 
 # Milestones
 
@@ -65,4 +65,4 @@ buildscript {
 }
 ```
 
-Note that our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M01` ours are `1.1.0-M01`.
+Note that our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M02` ours are `1.1.0-M02`.
