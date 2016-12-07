@@ -65,4 +65,7 @@ buildscript {
 }
 ```
 
-Note that our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M02` ours are `1.1.0-M02`.
+## Caveats
+
+- IntelliJ doesn't set the `-jvm-target` compiler option based on the Java SDK setting for the project, and can cause the compiler inlining failure if it tries to inline classes compiled with Gradle. Add `-jvm-target 1.8` to the Kotlin Compiler options in IntelliJ to avoid the issue
+- Our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M03` ours are `1.1.0-M03`.
