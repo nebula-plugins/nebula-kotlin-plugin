@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1-M03'
+    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1-M04'
 }
 
 pluginBundle {
