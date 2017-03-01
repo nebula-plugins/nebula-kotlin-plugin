@@ -18,7 +18,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.5'
+    id 'nebula.kotlin' version '1.1.0'
 } 
 
 repositories {
@@ -30,7 +30,7 @@ repositories {
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.0.5'
+    id 'nebula.kotlin' version '1.1.0'
 }
 
 repositories {
@@ -42,30 +42,8 @@ dependencies {
 }
 ```
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.0.5`).
-
-# Milestones
-
-Milestone plugin versions are also available, but require the milestone bintray repository for the Kotlin Gradle plugin dependencies to resolve. For example, for the 1.1 milestones on On Gradle 2.14 and later, use:
-
-```groovy
-pluginRepositories {
-    maven {
-        url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1'
-    }
-    gradlePluginPortal()
-}
-```
-
-On earlier releases:
-
-```groovy
-buildscript {
-    repositories.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
-}
-```
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.1.0`).
 
 ## Caveats
 
-- IntelliJ doesn't set the `-jvm-target` compiler option based on the Java SDK setting for the project, and can cause the compiler inlining failure if it tries to inline classes compiled with Gradle. Add `-jvm-target 1.8` to the Kotlin Compiler options in IntelliJ to avoid the issue
-- Our plugin versioning is strict semver, so while the Kotlin releases are `1.1-M04` ours are `1.1.0-M04`.
+- IntelliJ doesn't set the `-jvm-target` compiler option based on the Java SDK setting for the project, and can cause the compiler inlining failure if it tries to inline classes compiled with Gradle. Configure the JVM target in IntelliJ preferences to avoid this
