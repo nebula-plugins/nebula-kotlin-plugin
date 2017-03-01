@@ -29,9 +29,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
             plugins.apply("kotlin")
 
             val kotlinVersion = loadKotlinVersion()
-
-            repositories.maven { it.setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
-
+            
             afterEvaluate {
                 val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
