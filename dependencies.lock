@@ -43,8 +43,8 @@
     },
     "integTestCompile": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -61,8 +61,8 @@
     },
     "integTestCompileClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -79,8 +79,8 @@
     },
     "integTestRuntime": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -97,8 +97,8 @@
     },
     "integTestRuntimeClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -171,8 +171,8 @@
     },
     "testCompile": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -189,8 +189,8 @@
     },
     "testCompileClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -207,8 +207,8 @@
     },
     "testRuntime": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
@@ -225,8 +225,8 @@
     },
     "testRuntimeClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.0.0",
-            "requested": "6.0.0"
+            "locked": "6.0.1",
+            "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
             "locked": "1.1.1",
