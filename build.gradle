@@ -30,8 +30,8 @@ contacts {
 }
 
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
-    compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'
+    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2'
+    compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.2'
 }
 
 pluginBundle {
