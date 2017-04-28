@@ -1,43 +1,43 @@
 {
     "compile": {
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
     "compileClasspath": {
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
     "default": {
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -47,15 +47,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -65,15 +65,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -83,15 +83,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -101,15 +101,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -143,29 +143,29 @@
     },
     "runtime": {
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
     "runtimeClasspath": {
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -175,15 +175,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -193,15 +193,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -211,15 +211,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     },
@@ -229,15 +229,15 @@
             "requested": "6.0.1"
         },
         "org.jetbrains.kotlin:kotlin-gradle-plugin": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-reflect": {
-            "locked": "1.1.1",
-            "requested": "1.1.1"
+            "locked": "1.1.2",
+            "requested": "1.1.2"
         },
         "org.jetbrains.kotlin:kotlin-stdlib": {
-            "locked": "1.1.1",
+            "locked": "1.1.2",
             "requested": "1.0.3"
         }
     }
