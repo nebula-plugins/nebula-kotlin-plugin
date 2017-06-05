@@ -28,11 +28,13 @@ contacts {
     }
 }
 
-sourceCompatibility = '1.7'
+ext {
+    kotlinVersion = '1.1.2-2'
+}
 
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2'
-    compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.2'
+    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 }
 
 pluginBundle {
