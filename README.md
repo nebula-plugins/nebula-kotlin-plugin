@@ -11,6 +11,7 @@ Provides the Kotlin plugin via the Gradle plugin portal, and adds ergonomic impr
 - Automatically depends on the standard library
 - Allows Kotlin library versions to be omitted, inferring them automatically from the plugin version
 - For Kotlin 1.1 and later, sets the `-jvm-target` and uses the jre standard library based on the `sourceCompatibility`
+	- Use the https://github.com/nebula-plugins/gradle-java-cross-compile-plugin to set the `targetJdk` if desired
 
 # Basic Build
 
@@ -18,7 +19,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.1.2'
+    id 'nebula.kotlin' version '1.1.3-2'
 } 
 
 repositories {
@@ -30,7 +31,7 @@ repositories {
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.1.2'
+    id 'nebula.kotlin' version '1.1.3-2'
 }
 
 repositories {
@@ -42,8 +43,31 @@ dependencies {
 }
 ```
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.1.2-4`).
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.1.3-2`).
 
 ## Caveats
 
 - IntelliJ doesn't set the `-jvm-target` compiler option based on the Java SDK setting for the project, and can cause the compiler inlining failure if it tries to inline classes compiled with Gradle. Configure the JVM target in IntelliJ preferences to avoid this
+
+# EAP releases
+
+EAP plugin versions are also available, but require the bintray repository for the Kotlin Gradle plugin dependencies to resolve. For example, for the 1.1 EAP on On Gradle 2.14 and later, use:
+
+```groovy
+pluginRepositories {
+    maven {
+        url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1'
+    }
+    gradlePluginPortal()
+}
+```
+
+On earlier releases:
+
+```groovy
+buildscript {
+    repositories.maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+}
+```
+
+The plugin automatically adds the EAP repository for the build itself.
