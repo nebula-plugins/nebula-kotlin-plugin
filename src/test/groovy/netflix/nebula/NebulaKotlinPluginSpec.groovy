@@ -7,10 +7,19 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
 
     def setup() {
         kotlinVersion = NebulaKotlinPlugin.loadKotlinVersion()
+        buildFile << """\
+        apply plugin: 'nebula.kotlin'
+
+        repositories {
+            mavenCentral()
+            maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+        }
+        """.stripIndent()
     }
 
     def 'plugin applies'() {
         given:
+        buildFile.delete()
         buildFile << """
         apply plugin: 'nebula.kotlin'
         """
@@ -25,12 +34,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
     def 'default standard library is added'() {
         given:
         buildFile << """
-        apply plugin: 'nebula.kotlin'
-
-        repositories {
-            mavenCentral()
-        }
-
         sourceCompatibility = JavaVersion.VERSION_1_6
         """
 
@@ -44,12 +47,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
     def 'jre7 standard library is added when source compatibility is VERSION_1_7'() {
         given:
         buildFile << """
-        apply plugin: 'nebula.kotlin'
-
-        repositories {
-            mavenCentral()
-        }
-
         sourceCompatibility = JavaVersion.VERSION_1_7
         """
 
@@ -63,12 +60,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
     def 'jre8 standard library is added when source compatibility is VERSION_1_8'() {
         given:
         buildFile << """
-        apply plugin: 'nebula.kotlin'
-
-        repositories {
-            mavenCentral()
-        }
-
         sourceCompatibility = JavaVersion.VERSION_1_8
         """
 
@@ -82,12 +73,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
     def 'kotlin library versions are set if omitted'() {
         given:
         buildFile << """
-        apply plugin: 'nebula.kotlin'
-
-        repositories {
-            mavenCentral()
-        }
-
         dependencies {
             compile "org.jetbrains.kotlin:kotlin-reflect"
         }
