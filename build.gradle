@@ -29,15 +29,11 @@ contacts {
 }
 
 ext {
-    kotlinVersion = '1.1.4-eap-69'
+    kotlinVersion = '1.1.4'
 }
 
 // Dependencies are managed by the above property, we don't want to accidentally lock dependencies and publish out of step with the upstream Kotlin plugin
 ext.set("dependencyLock.ignore", "true")
-
-repositories {
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
-}
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
