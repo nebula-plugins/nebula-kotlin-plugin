@@ -29,7 +29,7 @@ contacts {
 }
 
 ext {
-    kotlinVersion = '1.2.0'
+    kotlinVersion = '1.2.10'
 }
 
 // Dependencies are managed by the above property, we don't want to accidentally lock dependencies and publish out of step with the upstream Kotlin plugin
