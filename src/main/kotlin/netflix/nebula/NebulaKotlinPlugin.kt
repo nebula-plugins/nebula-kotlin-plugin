@@ -33,17 +33,17 @@ class NebulaKotlinPlugin : Plugin<Project> {
             afterEvaluate {
                 val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
-                val jreSuffix = when {
+                val jdkSuffix = when {
                     sourceCompatibility == JavaVersion.VERSION_1_7 -> {
-                        "-jre7"
+                        "-jdk7"
                     }
                     sourceCompatibility >= JavaVersion.VERSION_1_8 -> {
                         kotlinOptions.forEach { it.jvmTarget = "1.8" }
-                        "-jre8"
+                        "-jdk8"
                     }
                     else -> ""
                 }
-                dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jreSuffix:$kotlinVersion")
+                dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
             }
 
             configurations.all({ configuration ->
