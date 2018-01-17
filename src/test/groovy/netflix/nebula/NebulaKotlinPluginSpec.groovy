@@ -44,7 +44,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
     }
 
-    def 'jre7 standard library is added when source compatibility is VERSION_1_7'() {
+    def 'jdk7 standard library is added when source compatibility is VERSION_1_7'() {
         given:
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_7
@@ -54,10 +54,10 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion\n")
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion\n")
     }
 
-    def 'jre8 standard library is added when source compatibility is VERSION_1_8'() {
+    def 'jdk8 standard library is added when source compatibility is VERSION_1_8'() {
         given:
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -67,7 +67,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion\n")
+        result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
     }
 
     def 'kotlin library versions are set if omitted'() {
