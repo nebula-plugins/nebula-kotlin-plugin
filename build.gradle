@@ -38,6 +38,8 @@ ext.set("dependencyLock.ignore", "true")
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
 }
 
 pluginBundle {
