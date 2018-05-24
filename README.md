@@ -14,6 +14,10 @@ Provides the Kotlin plugin via the Gradle plugin portal, and adds ergonomic impr
 	- Use the https://github.com/nebula-plugins/gradle-java-cross-compile-plugin to set the `targetJdk` if desired
 - Bundles the `kotlin-allopen` and `kotlin-noarg` plugins to allow them to be applied without adding them manually to the classpath
 
+# Quick Start
+
+Refer to the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/nebula.kotlin) for instructions on how to apply the main plugin.
+
 # Basic Build
 
 The plugin simplifies a basic Kotlin build script to:
