@@ -15,7 +15,7 @@
  */
 
 plugins {
-    id 'nebula.plugin-plugin' version '7.1.6'
+    id 'nebula.plugin-plugin' version '7.1.7'
     id 'nebula.kotlin' version '1.2.41'
 }
 
