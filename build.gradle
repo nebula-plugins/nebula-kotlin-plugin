@@ -16,7 +16,7 @@
 
 plugins {
     id 'nebula.plugin-plugin' version '7.1.8'
-    id 'nebula.kotlin' version '1.2.41'
+    id 'nebula.kotlin' version '1.2.50'
 }
 
 description 'Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin library versions to be omitted'
@@ -29,7 +29,7 @@ contacts {
 }
 
 ext {
-    kotlinVersion = '1.2.50'
+    kotlinVersion = '1.2.51'
 }
 
 // Dependencies are managed by the above property, we don't want to accidentally lock dependencies and publish out of step with the upstream Kotlin plugin

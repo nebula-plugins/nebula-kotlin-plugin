@@ -24,7 +24,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.2.50'
+    id 'nebula.kotlin' version '1.2.51'
 }
 
 repositories {
@@ -36,7 +36,7 @@ repositories {
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.2.50'
+    id 'nebula.kotlin' version '1.2.51'
 }
 
 repositories {
@@ -48,7 +48,7 @@ dependencies {
 }
 ```
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.2.50`).
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.2.51`).
 
 ## Caveats
 
