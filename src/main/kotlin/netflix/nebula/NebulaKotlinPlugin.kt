@@ -49,7 +49,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
             configurations.all({ configuration ->
                 configuration.resolutionStrategy.eachDependency { details ->
                     val requested = details.requested
-                    if (requested.group.equals("org.jetbrains.kotlin") && requested.version.isEmpty()) {
+                    if (requested.group.equals("org.jetbrains.kotlin") && requested.version.isNullOrEmpty()) {
                         details.useTarget("${requested.group}:${requested.name}:$kotlinVersion")
                     }
                 }
