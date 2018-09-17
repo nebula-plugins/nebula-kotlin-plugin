@@ -16,7 +16,7 @@
 
 plugins {
     id 'nebula.plugin-plugin' version '8.0.0'
-    id 'nebula.kotlin' version '1.2.61'
+    id 'nebula.kotlin' version '1.2.70'
 }
 
 description 'Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin library versions to be omitted'

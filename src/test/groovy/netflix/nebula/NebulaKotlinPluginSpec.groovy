@@ -84,4 +84,73 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         then:
         result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion\n")
     }
+
+
+    def 'plugin applies latest kotlin without conflicts while doing dependency lock'() {
+        given:
+        buildFile.delete()
+        buildFile << """
+        buildscript {
+            repositories {
+                maven {
+                  url "https://plugins.gradle.org/m2/"
+                }
+            }
+            dependencies {
+                 classpath 'com.netflix.nebula:nebula-kotlin-plugin:1.2.70'
+                 classpath "com.netflix.nebula:gradle-dependency-lock-plugin:6.1.1"
+            }
+        }
+
+        repositories {
+            mavenCentral()
+        }
+        
+        subprojects {
+                apply plugin: 'nebula.dependency-lock'
+                apply plugin: 'nebula.kotlin'
+                
+                kotlin {
+                    experimental {
+                        coroutines 'enable'
+                    }
+                }
+                
+                dependencies {
+                    testCompile 'junit:junit:latest.release'
+                }
+        }
+
+ 
+        """
+        addSubproject("sub1", """
+            apply plugin: 'groovy'
+
+            repositories {
+                mavenCentral()
+            }
+            
+            dependencies {
+                implementation group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+            }
+        """)
+
+        addSubproject("sub2", """
+            apply plugin: 'java-library'
+            
+            repositories {
+                mavenCentral()
+            }
+            
+            dependencies {
+                compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+            }
+        """)
+
+        when:
+        runTasksSuccessfully('sub1:generateLock', 'sub1:saveLock')
+
+        then:
+        noExceptionThrown()
+    }
 }
