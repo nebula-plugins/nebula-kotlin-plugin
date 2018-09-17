@@ -4,6 +4,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginConvention
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
@@ -26,7 +27,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         kotlin.with(project) {
-            plugins.apply("kotlin")
+            plugins.apply(KotlinPlatformJvmPlugin::class.java)
 
             val kotlinVersion = loadKotlinVersion()
             
