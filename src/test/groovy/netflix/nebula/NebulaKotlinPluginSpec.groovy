@@ -108,36 +108,32 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         
         subprojects {
                 apply plugin: 'nebula.dependency-lock'
-                apply plugin: 'nebula.kotlin'
-                
-                kotlin {
-                    experimental {
-                        coroutines 'enable'
-                    }
-                }
-                
-                dependencies {
-                    testCompile 'junit:junit:latest.release'
-                }
         }
 
  
         """
         addSubproject("sub1", """
-            apply plugin: 'groovy'
+            apply plugin: 'java'
 
             repositories {
                 mavenCentral()
             }
             
             dependencies {
-                implementation group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+                compile project(":sub2")
             }
         """)
 
         addSubproject("sub2", """
-            apply plugin: 'java-library'
-            
+            apply plugin: 'java'
+            apply plugin: 'nebula.kotlin'
+
+            kotlin {
+                 experimental {
+                      coroutines 'enable'
+                 }
+            }
+                
             repositories {
                 mavenCentral()
             }
@@ -148,7 +144,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         """)
 
         when:
-        runTasksSuccessfully('sub1:generateLock', 'sub1:saveLock')
+        runTasksSuccessfully('generateLock', 'saveLock')
 
         then:
         noExceptionThrown()
