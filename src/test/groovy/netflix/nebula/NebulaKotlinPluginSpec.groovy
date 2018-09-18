@@ -93,12 +93,12 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         buildscript {
             repositories {
                 maven {
-                  url "https://plugins.gradle.org/m2/"
+                    jcenter()
+                    url "https://plugins.gradle.org/m2/"
                 }
             }
             dependencies {
-                 classpath 'com.netflix.nebula:nebula-kotlin-plugin:1.2.70'
-                 classpath "com.netflix.nebula:gradle-dependency-lock-plugin:6.1.1"
+                classpath "com.netflix.nebula:gradle-dependency-lock-plugin:6.1.1"
             }
         }
 
@@ -106,34 +106,24 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             mavenCentral()
         }
         
+        allprojects {
+            apply plugin: 'nebula.dependency-lock'
+        }
+        
         subprojects {
-                apply plugin: 'nebula.dependency-lock'
+            apply plugin: 'nebula.kotlin'
+            apply plugin: 'kotlin-spring'
+            
+            kotlin {
+                experimental {
+                    coroutines 'enable'
+                }
+            }
         }
 
- 
         """
-        addSubproject("sub1", """
-            apply plugin: 'java'
-
-            repositories {
-                mavenCentral()
-            }
-            
-            dependencies {
-                compile project(":sub2")
-            }
-        """)
 
         addSubproject("sub2", """
-            apply plugin: 'java'
-            apply plugin: 'nebula.kotlin'
-
-            kotlin {
-                 experimental {
-                      coroutines 'enable'
-                 }
-            }
-                
             repositories {
                 mavenCentral()
             }
@@ -143,10 +133,20 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             }
         """)
 
+        addSubproject("sub1", """
+            apply plugin: 'groovy'
+            dependencies {
+                  compile project(":sub2")
+            }
+        """)
+
+
         when:
         runTasksSuccessfully('generateLock', 'saveLock')
 
         then:
         noExceptionThrown()
     }
+
+
 }
