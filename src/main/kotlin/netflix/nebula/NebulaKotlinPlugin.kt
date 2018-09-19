@@ -15,7 +15,8 @@ import java.util.*
 
 class NebulaKotlinPlugin : Plugin<Project> {
 
-    private val AFFECTED_KOTLIN_VERSION = "1.2.70"
+    //TODO: keep track of https://youtrack.jetbrains.com/issue/KT-26834 and see if this gets fixed in 1.2.72 as assigned
+    private val AFFECTED_KOTLIN_VERSIONS = arrayOf("1.2.70", "1.2.71")
 
     companion object {
         @JvmStatic
@@ -54,7 +55,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
             }
 
             configurations.all({ configuration ->
-                if(kotlinVersion == AFFECTED_KOTLIN_VERSION && configuration.attributes.contains(KotlinPlatformType.attribute)) {
+                if(kotlinVersion in AFFECTED_KOTLIN_VERSIONS && configuration.attributes.contains(KotlinPlatformType.attribute)) {
                     configuration.attributes.attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
                 }
 
