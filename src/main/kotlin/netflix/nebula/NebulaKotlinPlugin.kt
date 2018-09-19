@@ -3,14 +3,20 @@ package netflix.nebula
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.attributes.Attribute
 import org.gradle.api.plugins.JavaPluginConvention
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
 
 class NebulaKotlinPlugin : Plugin<Project> {
+
+    private val AFFECTED_KOTLIN_VERSION = "1.2.70"
+
     companion object {
         @JvmStatic
         fun loadKotlinVersion(): String {
@@ -30,7 +36,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
             plugins.apply(KotlinPlatformJvmPlugin::class.java)
 
             val kotlinVersion = loadKotlinVersion()
-            
+
             afterEvaluate {
                 val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
                 val sourceCompatibility = convention.getPlugin(JavaPluginConvention::class.java).sourceCompatibility
@@ -48,6 +54,10 @@ class NebulaKotlinPlugin : Plugin<Project> {
             }
 
             configurations.all({ configuration ->
+                if(kotlinVersion == AFFECTED_KOTLIN_VERSION && configuration.attributes.contains(KotlinPlatformType.attribute)) {
+                    configuration.attributes.attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+                }
+
                 configuration.resolutionStrategy.eachDependency { details ->
                     val requested = details.requested
                     if (requested.group.equals("org.jetbrains.kotlin") && requested.version.isNullOrEmpty()) {

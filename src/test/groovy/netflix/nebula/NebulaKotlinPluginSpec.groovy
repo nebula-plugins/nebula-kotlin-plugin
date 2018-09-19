@@ -85,6 +85,48 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion\n")
     }
 
+    def 'plugin applied without conflicts with kotlin 1.2.70'() {
+        given:
+        buildFile.delete()
+        buildFile <<  """
+        allprojects {
+            apply plugin: 'nebula.kotlin'
+
+            repositories {
+                jcenter()
+            }
+        }
+
+        """
+
+        addSubproject("sub2", """
+            repositories {
+                mavenCentral()
+            }
+            
+            dependencies {
+                compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+            }
+        """)
+
+        addSubproject("sub1", """
+            dependencies {
+                compile project(":sub2")
+            }
+
+            task resolve() {
+                doFirst {
+                    configurations.apiDependenciesMetadata.files()
+                }
+            }
+        """)
+
+        when:
+        runTasksSuccessfully(':sub1:resolve')
+
+        then:
+        noExceptionThrown()
+    }
 
     def 'plugin applies latest kotlin without conflicts while doing dependency lock'() {
         given:
@@ -92,8 +134,8 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         buildFile << """
         buildscript {
             repositories {
+                jcenter()
                 maven {
-                    jcenter()
                     url "https://plugins.gradle.org/m2/"
                 }
             }
@@ -111,8 +153,11 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
         
         subprojects {
+           repositories {
+                mavenCentral()
+            }
+            
             apply plugin: 'nebula.kotlin'
-            apply plugin: 'kotlin-spring'
             
             kotlin {
                 experimental {
