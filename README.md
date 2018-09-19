@@ -25,7 +25,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.2.70'
+    id 'nebula.kotlin' version '1.2.70-2'
 }
 
 repositories {
