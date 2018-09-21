@@ -17,6 +17,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
 
     //TODO: keep track of https://youtrack.jetbrains.com/issue/KT-26834 and see if this gets fixed in 1.2.72 as assigned
     private val AFFECTED_KOTLIN_VERSIONS = arrayOf("1.2.70", "1.2.71")
+    private val KOTLIN_1_3_RC = "1.3.0-rc"
     private val DEPENDENCIES_METADATA_SUFFIX = "DependenciesMetadata"
     private val AFFECTED_CONFIGURATIONS = listOf("apiDependenciesMetadata", "apiElements", "runtimeElements")
 
@@ -57,7 +58,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
             }
 
             configurations.all({ configuration ->
-                if(kotlinVersion in AFFECTED_KOTLIN_VERSIONS && configuration.name.endsWith(DEPENDENCIES_METADATA_SUFFIX)) {
+                if((kotlinVersion in AFFECTED_KOTLIN_VERSIONS || kotlinVersion.contains(KOTLIN_1_3_RC)) && configuration.name.endsWith(DEPENDENCIES_METADATA_SUFFIX)) {
                     if(configuration.name in AFFECTED_CONFIGURATIONS) {
                         configuration.attributes.attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
                     } else {
