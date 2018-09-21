@@ -12,7 +12,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
 
         repositories {
             mavenCentral()
-            maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+            maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         }
         """.stripIndent()
     }
