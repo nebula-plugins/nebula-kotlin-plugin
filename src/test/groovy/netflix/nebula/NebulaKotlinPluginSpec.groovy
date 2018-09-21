@@ -191,6 +191,154 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
 
         then:
         noExceptionThrown()
+
+        and:
+        File dependencyLockFile = new File(getProjectDir(), '/sub2/dependencies.lock')
+        dependencyLockFile.text.trim() == """
+{
+    "apiDependenciesMetadata": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "compile": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "compileClasspath": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "default": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "implementationDependenciesMetadata": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "kotlinCompilerClasspath": {
+        "org.jetbrains.kotlin:kotlin-compiler-embeddable": {
+            "locked": "1.2.70"
+        }
+    },
+    "kotlinCompilerPluginClasspath": {
+        "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "runtime": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "runtimeClasspath": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testApiDependenciesMetadata": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testCompile": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testCompileClasspath": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testImplementationDependenciesMetadata": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testRuntime": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    },
+    "testRuntimeClasspath": {
+        "com.google.guava:guava": {
+            "locked": "26.0-jre",
+            "requested": "26.0-jre"
+        },
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
+            "locked": "1.2.70",
+            "requested": "1.2.70"
+        }
+    }
+}
+        """.trim()
     }
 
 

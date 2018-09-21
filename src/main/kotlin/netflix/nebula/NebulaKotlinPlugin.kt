@@ -17,6 +17,8 @@ class NebulaKotlinPlugin : Plugin<Project> {
 
     //TODO: keep track of https://youtrack.jetbrains.com/issue/KT-26834 and see if this gets fixed in 1.2.72 as assigned
     private val AFFECTED_KOTLIN_VERSIONS = arrayOf("1.2.70", "1.2.71")
+    private val DEPENDENCIES_METADATA_SUFFIX = "DependenciesMetadata"
+    private val AFFECTED_CONFIGURATIONS = listOf("apiDependenciesMetadata", "apiElements", "runtimeElements")
 
     companion object {
         @JvmStatic
@@ -55,8 +57,12 @@ class NebulaKotlinPlugin : Plugin<Project> {
             }
 
             configurations.all({ configuration ->
-                if(kotlinVersion in AFFECTED_KOTLIN_VERSIONS && configuration.attributes.contains(KotlinPlatformType.attribute)) {
-                    configuration.attributes.attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+                if(kotlinVersion in AFFECTED_KOTLIN_VERSIONS && configuration.name.endsWith(DEPENDENCIES_METADATA_SUFFIX)) {
+                    if(configuration.name in AFFECTED_CONFIGURATIONS) {
+                        configuration.attributes.attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+                    } else {
+                        configuration.setCanBeResolved(false)
+                    }
                 }
 
                 configuration.resolutionStrategy.eachDependency { details ->
