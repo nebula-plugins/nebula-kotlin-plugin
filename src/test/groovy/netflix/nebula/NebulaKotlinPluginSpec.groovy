@@ -94,6 +94,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
 
             repositories {
                 jcenter()
+                maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
             }
         }
 
@@ -145,7 +146,9 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
 
         repositories {
+            jcenter()
             mavenCentral()
+            maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         }
         
         allprojects {
@@ -153,8 +156,9 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
         
         subprojects {
-           repositories {
+            repositories {
                 mavenCentral()
+                maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
             }
             
             apply plugin: 'nebula.kotlin'
@@ -194,20 +198,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
 
         and:
         File dependencyLockFile = new File(getProjectDir(), '/sub2/dependencies.lock')
-        dependencyLockFile.text.contains("""
-
-    "compile": {
-        "com.google.guava:guava": {
-            "locked": "26.0-jre",
-            "requested": "26.0-jre"
-        },
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
-            "locked": "1.2.70",
-            "requested": "1.2.70"
-        }
+        dependencyLockFile.text.contains("com.google.guava:guava")
+        dependencyLockFile.text.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     }
-        """.trim())
-    }
-
-
 }
