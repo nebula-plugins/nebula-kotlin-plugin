@@ -3,12 +3,10 @@ package netflix.nebula
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.attributes.Attribute
 import org.gradle.api.plugins.JavaPluginConvention
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
-import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
@@ -16,7 +14,7 @@ import java.util.*
 class NebulaKotlinPlugin : Plugin<Project> {
 
     //TODO: keep track of https://youtrack.jetbrains.com/issue/KT-26834 and see if this gets fixed in 1.2.72 as assigned
-    private val AFFECTED_KOTLIN_VERSIONS = arrayOf("1.2.70", "1.2.71")
+    private val AFFECTED_KOTLIN_VERSIONS = arrayOf("1.2.70", "1.2.71", "1.3.0-rc-57")
     private val DEPENDENCIES_METADATA_SUFFIX = "DependenciesMetadata"
     private val AFFECTED_CONFIGURATIONS = listOf("apiDependenciesMetadata", "apiElements", "runtimeElements")
 
