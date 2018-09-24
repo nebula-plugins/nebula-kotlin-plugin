@@ -202,8 +202,8 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             "requested": "26.0-jre"
         },
         "org.jetbrains.kotlin:kotlin-stdlib-jdk8": {
-            "locked": "1.2.70",
-            "requested": "1.2.70"
+            "locked": "1.2.71",
+            "requested": "1.2.71"
         }
     }
         """.trim())
