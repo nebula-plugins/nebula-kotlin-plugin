@@ -82,7 +82,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def result = runTasksSuccessfully('dependencies')
 
         then:
-        result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect:{prefer $kotlinVersion} -> $kotlinVersion")
+        result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
     }
 
     def 'plugin applied without conflicts with kotlin 1.2.70'() {
