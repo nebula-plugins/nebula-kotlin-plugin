@@ -45,7 +45,7 @@ class NebulaKotlinPlugin : Plugin<Project> {
                     }
                     else -> ""
                 }
-                dependencies.add("compile", "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                dependencies.add("implementation", "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
             }
 
             configurations.all({ configuration ->

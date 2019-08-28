@@ -74,7 +74,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         given:
         buildFile << """
         dependencies {
-            compile "org.jetbrains.kotlin:kotlin-reflect"
+            implementation "org.jetbrains.kotlin:kotlin-reflect"
         }
         """
 
@@ -106,13 +106,13 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             }
             
             dependencies {
-                compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+                implementation group: 'com.google.guava', name: 'guava', version: '26.0-jre'
             }
         """)
 
         addSubproject("sub1", """
             dependencies {
-                compile project(":sub2")
+                implementation project(":sub2")
             }
 
             task resolve() {
@@ -178,14 +178,14 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             }
             
             dependencies {
-                compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+                implementation group: 'com.google.guava', name: 'guava', version: '26.0-jre'
             }
         """)
 
         addSubproject("sub1", """
             apply plugin: 'groovy'
             dependencies {
-                  compile project(":sub2")
+                  implementation project(":sub2")
             }
         """)
 
