@@ -15,7 +15,7 @@
  */
 
 plugins {
-    id 'nebula.plugin-plugin' version '12.3.5'
+    id 'nebula.plugin-plugin' version '12.4.1'
     id 'nebula.kotlin' version '1.3.50'
 }
 
@@ -44,11 +44,11 @@ ext {
 ext.set("dependencyLock.ignore", "true")
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
 }
 
 pluginBundle {
