@@ -59,6 +59,12 @@ pluginBundle {
             description = project.description
             tags = ['nebula', 'kotlin']
         }
+        kotlinNodep {
+            id = 'nebula.kotlin-nodep'
+            displayName = 'Nebula Kotlin Nodep plugin'
+            description = "Applies Kotlin defaults without stdlib dependencies"
+            tags = ['nebula', 'kotlin']
+        }
     }
 }
 
