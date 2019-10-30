@@ -39,7 +39,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def result = runTasksSuccessfully('dependencies')
+        def result = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
         result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
@@ -52,7 +52,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def result = runTasksSuccessfully('dependencies')
+        def result = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
         result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion\n")
@@ -65,7 +65,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def result = runTasksSuccessfully('dependencies')
+        def result = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
         result.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
@@ -80,7 +80,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def result = runTasksSuccessfully('dependencies')
+        def result = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
         result.standardOutput.contains("+--- org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
