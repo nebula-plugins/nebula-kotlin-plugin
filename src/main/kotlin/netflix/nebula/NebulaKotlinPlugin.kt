@@ -1,7 +1,7 @@
 package netflix.nebula
 
 class NebulaKotlinPlugin : NebulaBaseKotlinPlugin() {
-    override fun isOnlyTestPlugin(): Boolean {
+    override fun isNodepPlugin(): Boolean {
         return false
     }
 }

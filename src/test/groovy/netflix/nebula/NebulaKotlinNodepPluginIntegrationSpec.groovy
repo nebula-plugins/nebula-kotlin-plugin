@@ -3,13 +3,13 @@ package netflix.nebula
 
 import nebula.test.IntegrationSpec
 
-class NebulaKotlinTestPluginIntegrationSpec extends IntegrationSpec {
+class NebulaKotlinNodepPluginIntegrationSpec extends IntegrationSpec {
     String kotlinVersion
 
     def setup() {
         kotlinVersion = NebulaKotlinPlugin.loadKotlinVersion()
         buildFile << """\
-        apply plugin: 'nebula.kotlin-test'
+        apply plugin: 'nebula.kotlin-nodep'
 
         repositories {
             mavenCentral()
@@ -22,7 +22,7 @@ class NebulaKotlinTestPluginIntegrationSpec extends IntegrationSpec {
         given:
         buildFile.delete()
         buildFile << """
-        apply plugin: 'nebula.kotlin-test'
+        apply plugin: 'nebula.kotlin-nodep'
         """
 
         when:
@@ -39,12 +39,6 @@ class NebulaKotlinTestPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def resultTestCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'testCompileClasspath')
-
-        then:
-        resultTestCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
-
-        when:
         def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
@@ -58,12 +52,6 @@ class NebulaKotlinTestPluginIntegrationSpec extends IntegrationSpec {
         """
 
         when:
-        def resultTestCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'testCompileClasspath')
-
-        then:
-        resultTestCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
-
-        when:
         def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
@@ -75,12 +63,6 @@ class NebulaKotlinTestPluginIntegrationSpec extends IntegrationSpec {
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_8
         """
-
-        when:
-        def resultTestCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'testCompileClasspath')
-
-        then:
-        resultTestCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
 
         when:
         def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')

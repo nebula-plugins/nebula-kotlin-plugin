@@ -13,7 +13,7 @@ import java.util.*
 
 abstract class NebulaBaseKotlinPlugin : Plugin<Project> {
 
-    abstract fun isOnlyTestPlugin() : Boolean
+    abstract fun isNodepPlugin() : Boolean
 
     companion object {
         @JvmStatic
@@ -49,8 +49,9 @@ abstract class NebulaBaseKotlinPlugin : Plugin<Project> {
                     else -> ""
                 }
 
-                val stdLibConfiguration = if(isOnlyTestPlugin()) "testImplementation" else "implementation"
-                dependencies.add(stdLibConfiguration, "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                if(!isNodepPlugin()) {
+                    dependencies.add("implementation", "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                }
             }
 
             configurations.all({ configuration ->
