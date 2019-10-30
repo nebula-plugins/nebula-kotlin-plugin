@@ -202,4 +202,31 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         dependencyLockFile.text.contains("com.google.guava:guava")
         dependencyLockFile.text.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     }
+
+    def 'jdk8 standard library is added to custom configuration'() {
+        given:
+        buildFile << """
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        
+        configurations {
+            myConfig
+        }
+        
+        nebulaKotlin {
+            stdlibConfiguration = "myConfig"
+        }
+        """
+
+        when:
+        def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
+
+        then:
+        !resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+
+        when:
+        def resultMyConfig = runTasksSuccessfully('dependencies', '--configuration', 'myConfig')
+
+        then:
+        resultMyConfig.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+    }
 }

@@ -34,6 +34,7 @@ abstract class NebulaBaseKotlinPlugin : Plugin<Project> {
             plugins.apply(KotlinPlatformJvmPlugin::class.java)
 
             val kotlinVersion = loadKotlinVersion()
+            val extension = project.extensions.create("nebulaKotlin", NebulaKotlinExtension::class.java)
 
             afterEvaluate {
                 val kotlinOptions = tasks.filter { it is KotlinCompile }.map { (it as KotlinCompile).kotlinOptions }
@@ -50,7 +51,7 @@ abstract class NebulaBaseKotlinPlugin : Plugin<Project> {
                 }
 
                 if(!isNodepPlugin()) {
-                    dependencies.add("implementation", "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                    dependencies.add(extension.stdlibConfiguration.get(), "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
                 }
             }
 
