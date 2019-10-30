@@ -70,4 +70,26 @@ class NebulaKotlinNodepPluginIntegrationSpec extends IntegrationSpec {
         then:
         !resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
     }
+
+    def 'default standard library is added when requested'() {
+        given:
+        buildFile << """\
+        apply plugin: 'nebula.kotlin-nodep'
+
+        repositories {
+            mavenCentral()
+            maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        }
+        
+        dependencies {
+            testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        }
+        """.stripIndent()
+
+        when:
+        def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'testCompileClasspath')
+
+        then:
+        resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+    }
 }
