@@ -59,6 +59,12 @@ pluginBundle {
             description = project.description
             tags = ['nebula', 'kotlin']
         }
+        kotlinTest {
+            id = 'nebula.kotlin-test'
+            displayName = 'Nebula Kotlin Test plugin'
+            description = "Applies Kotlin defaults for test configurations only"
+            tags = ['nebula', 'kotlin']
+        }
     }
 }
 
