@@ -32,7 +32,7 @@ class NebulaKotlinNodepPluginIntegrationSpec extends IntegrationSpec {
         noExceptionThrown()
     }
 
-    def 'default standard library is added to test only'() {
+    def 'default standard library is not added'() {
         given:
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_6
@@ -45,7 +45,7 @@ class NebulaKotlinNodepPluginIntegrationSpec extends IntegrationSpec {
         !resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
     }
 
-    def 'jdk7 standard library is added when source compatibility is VERSION_1_7 for test configuration only'() {
+    def 'jdk7 standard library is not added when source compatibility is VERSION_1_7'() {
         given:
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_7
@@ -58,7 +58,7 @@ class NebulaKotlinNodepPluginIntegrationSpec extends IntegrationSpec {
         !resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion\n")
     }
 
-    def 'jdk8 standard library is added when source compatibility is VERSION_1_8 for test configuration only'() {
+    def 'jdk8 standard library is not added when source compatibility is VERSION_1_8 for test configuration only'() {
         given:
         buildFile << """
         sourceCompatibility = JavaVersion.VERSION_1_8
