@@ -25,7 +25,7 @@ The plugin simplifies a basic Kotlin build script to:
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.3.50'
+    id 'nebula.kotlin' version '1.3.60'
 }
 
 repositories {
@@ -33,11 +33,11 @@ repositories {
 }
 ```
 
-# Additional library
+## Additional library
 
 ```groovy
 plugins {
-    id 'nebula.kotlin' version '1.3.50'
+    id 'nebula.kotlin' version '1.3.60'
 }
 
 repositories {
@@ -48,6 +48,46 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
 }
 ```
+
+## Default configuration ( >= 1.3.60)
+
+There are cases were we only want to use kotlin for specific configurations and applying the plugin added `stdlib` to `implementation` by default.
+
+Starting on `1.3.60`, it is possible to set the default configuration for `stdlib` via `stdlibConfiguration`. For example:
+
+```groovy
+plugins {
+    id 'nebula.kotlin' version '1.3.60'
+}
+
+repositories {
+    mavenCentral() // or jcenter()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+}
+
+configurations {
+   myConfig
+}
+
+nebulaKotlin {
+     stdlibConfiguration = "myConfig"
+}
+```
+
+
+# Nodep plugin ( >= 1.3.60)
+
+This plugin will apply our opinions for default version of additional dependencies but won't add `stdlib` by default
+
+```groovy
+plugins {
+    id 'nebula.kotlin-nodep' version '1.3.60'
+}
+```
+
 
 The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.3.50`).
 
