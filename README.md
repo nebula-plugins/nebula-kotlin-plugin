@@ -89,7 +89,7 @@ plugins {
 ```
 
 
-The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.3.50`).
+The version for `kotlin-reflect` will be automatically set to match the Kotlin version (`1.3.60`).
 
 ## Caveats
 
