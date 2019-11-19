@@ -51,7 +51,14 @@ abstract class NebulaBaseKotlinPlugin : Plugin<Project> {
                 }
 
                 if(!isNodepPlugin()) {
-                    dependencies.add(extension.stdlibConfiguration.get(), "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                    if(extension.stdlibConfiguration.isPresent()) {
+                        dependencies.add(extension.stdlibConfiguration.get(), "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+
+                    } else {
+                        extension.stdlibConfigurations.get().distinct().forEach {configurationName ->
+                            dependencies.add(configurationName, "org.jetbrains.kotlin:kotlin-stdlib$jdkSuffix:$kotlinVersion")
+                        }
+                    }
                 }
             }
 
