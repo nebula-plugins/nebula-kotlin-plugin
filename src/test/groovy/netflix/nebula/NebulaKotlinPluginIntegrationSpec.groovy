@@ -213,6 +213,33 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
         
         nebulaKotlin {
+            stdlibConfigurations = ["myConfig"]
+        }
+        """
+
+        when:
+        def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
+
+        then:
+        !resultCompileClasspath.standardOutput.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+
+        when:
+        def resultMyConfig = runTasksSuccessfully('dependencies', '--configuration', 'myConfig')
+
+        then:
+        resultMyConfig.standardOutput.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+    }
+
+    def 'jdk8 standard library is added to custom configuration - deprecated extension property'() {
+        given:
+        buildFile << """
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        
+        configurations {
+            myConfig
+        }
+        
+        nebulaKotlin {
             stdlibConfiguration = "myConfig"
         }
         """
@@ -221,12 +248,12 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         def resultCompileClasspath = runTasksSuccessfully('dependencies', '--configuration', 'compileClasspath')
 
         then:
-        !resultCompileClasspath.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+        !resultCompileClasspath.standardOutput.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
 
         when:
         def resultMyConfig = runTasksSuccessfully('dependencies', '--configuration', 'myConfig')
 
         then:
-        resultMyConfig.standardOutput.contains("\\--- org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
+        resultMyConfig.standardOutput.contains("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion\n")
     }
 }
