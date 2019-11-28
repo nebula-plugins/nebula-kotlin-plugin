@@ -77,6 +77,14 @@ nebulaKotlin {
 }
 ```
 
+If you use kotlin buildscripts:
+
+```
+nebulaKotlin {
+  stdlibConfigurations.set(listOf("implementation", "testFixturesImplementation"))
+}
+```
+
 
 # Nodep plugin ( >= 1.3.61)
 
