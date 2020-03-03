@@ -37,7 +37,7 @@ repositories {
 }
 
 ext {
-    kotlinVersion = '1.3.61'
+    kotlinVersion = '1.3.70'
 }
 
 // Dependencies are managed by the above property, we don't want to accidentally lock dependencies and publish out of step with the upstream Kotlin plugin
