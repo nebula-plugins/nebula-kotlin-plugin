@@ -8,7 +8,9 @@
 
 This is a legacy plugin but will continue to receive 1.2 and 1.3 Kotlin releases. JetBrains has deprecated the existing plugin for the `multiplatform` plugin. If you use 1.3.70 or later you'll receive the warning:
 ```
-The 'org.jetbrains.kotlin.platform.*' plugins are deprecated and will no longer be available in Kotlin 1.4. Please migrate the project to the 'org.jetbrains.kotlin.multiplatform' plugin. See: https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
+The 'org.jetbrains.kotlin.platform.*' plugins are deprecated and will no longer be available in Kotlin 1.4.
+Please migrate the project to the 'org.jetbrains.kotlin.multiplatform' plugin. 
+See: https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
 ```
 
 The multiplatform plugin is a complete migration from the legacy plugin and provides many of the ergonomic features, such as JVM target configuration and Kotlin library version management that this plugin provided. If you have a project that will move to 1.4 once it's released you should migrate to `multiplatform`.
