@@ -6,7 +6,7 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/nebula-kotlin-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
 [![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/nebula-kotlin-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-This is a legacy plugin but will continue to receive 1.2 and 1.3 Kotlin releases. JetBrain's has deprecated the existing plugin for the `multiplatform` plugin. If you use 1.3.70 or later you'll receive the warning:
+This is a legacy plugin but will continue to receive 1.2 and 1.3 Kotlin releases. JetBrains has deprecated the existing plugin for the `multiplatform` plugin. If you use 1.3.70 or later you'll receive the warning:
 ```
 The 'org.jetbrains.kotlin.platform.*' plugins are deprecated and will no longer be available in Kotlin 1.4. Please migrate the project to the 'org.jetbrains.kotlin.multiplatform' plugin. See: https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
 ```
