@@ -39,7 +39,7 @@ plugins {
 }
 
 repositories {
-    mavenCentral() // or jcenter()
+    mavenCentral() 
 }
 ```
 
@@ -51,7 +51,7 @@ plugins {
 }
 
 repositories {
-    mavenCentral() // or jcenter()
+    mavenCentral() 
 }
 
 dependencies {
@@ -71,7 +71,7 @@ plugins {
 }
 
 repositories {
-    mavenCentral() // or jcenter()
+    mavenCentral()
 }
 
 dependencies {

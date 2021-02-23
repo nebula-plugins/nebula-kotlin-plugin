@@ -94,7 +94,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
             apply plugin: 'nebula.kotlin'
 
             repositories {
-                jcenter()
+                mavenCentral()
                 maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
             }
         }
@@ -136,7 +136,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         buildFile << """
         buildscript {
             repositories {
-                jcenter()
+                mavenCentral()
                 maven {
                     url "https://plugins.gradle.org/m2/"
                 }
@@ -147,7 +147,6 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
         }
 
         repositories {
-            jcenter()
             mavenCentral()
             maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         }
