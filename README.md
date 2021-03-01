@@ -1,10 +1,12 @@
 # Nebula Kotlin Plugin
 
 ![Support Status](https://img.shields.io/badge/nebula-maintenance-orange.svg)
-[![Build Status](https://travis-ci.com/nebula-plugins/nebula-kotlin-plugin.svg?branch=master)](https://travis-ci.com/nebula-plugins/nebula-kotlin-plugin)
-[![Coverage Status](https://coveralls.io/repos/nebula-plugins/nebula-kotlin-plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/nebula-plugins/nebula-kotlin-plugin?branch=master)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/nebula-kotlin-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
+[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com.netflix.nebula/nebula-kotlin-plugin/maven-metadata.xml.svg?label=gradlePluginPortal)](https://plugins.gradle.org/plugin/nebula.kotlin)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.netflix.nebula/nebula-kotlin-plugin/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.netflix.nebula/nebula-kotlin-plugin)
+![CI](https://github.com/nebula-plugins/nebula-kotlin-plugin/actions/workflows/ci.yml/badge.svg)
+![Publish](https://github.com/nebula-plugins/nebula-kotlin-plugin/actions/workflows/publish.yml/badge.svg)
 [![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/nebula-kotlin-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
 
 This plugin is in maintenance mode but will continue to receive 1.2 and 1.3 Kotlin releases. JetBrains has deprecated the existing `jvm` plugin and replaced it with the `multiplatform` plugin. If you use 1.3.70 or later you'll receive the warning:
 ```
