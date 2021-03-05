@@ -22,13 +22,9 @@ plugins {
 description 'Provides the Kotlin plugin via the Gradle plugin portal and allows Kotlin library versions to be omitted'
 
 contacts {
-    'dmthomas@gmail.com' {
-        moniker 'Danny Thomas'
-        github 'DanielThomas'
-    }
-    'roberto@perezalcolea.info' {
-        moniker 'Roberto Perez Alcolea'
-        github 'rpalcolea'
+    'nebula-plugins-oss@netflix.com' {
+        moniker 'Nebula Plugins Maintainers'
+        github 'nebula-plugins'
     }
 }
 
