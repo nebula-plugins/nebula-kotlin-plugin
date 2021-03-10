@@ -142,7 +142,7 @@ class NebulaKotlinPluginIntegrationSpec extends IntegrationSpec {
                 }
             }
             dependencies {
-                classpath "com.netflix.nebula:gradle-dependency-lock-plugin:6.1.1"
+                classpath "com.netflix.nebula:gradle-dependency-lock-plugin:11.1.2"
             }
         }
 
